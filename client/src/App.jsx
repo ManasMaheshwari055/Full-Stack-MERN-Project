@@ -10,8 +10,8 @@ import Header from './components/Header.jsx';
 export default function App() {
   return (
     <>
-      <Header/>
       <BrowserRouter>
+        <Header/>
         <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/sign-in" element={<SignIn />}/>
