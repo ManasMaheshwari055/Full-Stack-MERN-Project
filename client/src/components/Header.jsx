@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 export default function Header() {
   return (
-    <header className='bg-sky-100 shadow-md'>
+    <header className='bg-sky-200 shadow-md'>
         <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
             <Link to='/'>
                 <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
@@ -18,13 +18,13 @@ export default function Header() {
             </form>
             <ul className='flex gap-8'>
                 <Link to='/'>
-                    <li className='hidden sm:inline text-sky-900 hover:underline cursor-pointer'>Home</li>
+                    <li className='hidden sm:inline text-sky-950 hover:underline cursor-pointer'>Home</li>
                 </Link>
                 <Link to='/about'>
-                    <li className='hidden sm:inline text-sky-900 hover:underline cursor-pointer'>About</li>
+                    <li className='hidden sm:inline text-sky-950 hover:underline cursor-pointer'>About</li>
                 </Link>
                 <Link to='/sign-in'>
-                    <li className='text-sky-900 hover:underline cursor-pointer'>Sign In</li>
+                    <li className='text-sky-950 hover:underline cursor-pointer'>Sign In</li>
                 </Link>
             </ul>
         </div>
