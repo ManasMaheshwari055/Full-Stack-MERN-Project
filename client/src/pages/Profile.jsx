@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import { updateUserSuccess, updateUserFailure, deleteUserSuccess, deleteUserFailure } from '../redux/user/userSlice.js'
+import { updateUserSuccess, updateUserFailure, deleteUserSuccess, deleteUserFailure, signOutUserFailure, signOutUserSuccess } from '../redux/user/userSlice.js'
 import { useDispatch } from 'react-redux';
 
 export default function Profile() {
@@ -64,6 +64,21 @@ export default function Profile() {
     }
   }
 
+  const handleSignOut = async () => {
+    try {
+      const res = await fetch('/api/auth/signOut');
+      const data = await res.json();
+      if(data.success === false){
+        dispatch(signOutUserFailure(data.message));
+        return;
+      }
+      dispatch(signOutUserSuccess(data));
+    } 
+    catch (error) {
+      dispatch(signOutUserFailure(data.message));
+    }
+  }
+
   return (
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
@@ -101,7 +116,7 @@ export default function Profile() {
 
       <div className="flex justify-between mt-5">
         <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete account</span>
-        <span className='text-red-700 cursor-pointer'>Sign Out</span>
+        <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>Sign Out</span>
       </div>
 
     </div>
